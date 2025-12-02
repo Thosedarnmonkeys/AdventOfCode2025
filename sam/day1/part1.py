@@ -1,7 +1,8 @@
 zeros = 0
 dial = 50
+filepath = "input.txt"
 
-file = open("D:\\Proj\\AdventOfCode2025\\sam\\day1a\\input.txt")
+file = open(filepath)
 for line in file:
     direction = line[:1]
     value = int(line[1:])
