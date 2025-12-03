@@ -19,10 +19,7 @@ def is_invalid(id: int) -> bool:
         return False
     
     mid_index = len(id_str) // 2
-    if id_str[0:mid_index] == id_str[mid_index:]:
-        return True
-
-    return False
+    return id_str[0:mid_index] == id_str[mid_index:]
 
 def main():
     sum_of_invalid_ids = 0
