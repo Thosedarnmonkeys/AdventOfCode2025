@@ -7,15 +7,8 @@ def read_input(file_path) -> list[str]:
     return data
 
 def get_max_battery(bank: str, start_index: int, end_index: int) -> tuple[int, int]:
-    max_battery = 0
-    max_index = -1
-
-    for index, battery in enumerate(int(battery) for battery in list(bank[start_index:end_index])):
-        if battery > max_battery:
-            max_battery = battery
-            max_index = index
-    
-    return max_index + start_index, max_battery
+    max_index, max_battery = max(enumerate(bank[start_index:end_index]), key=lambda x: int(x[1]))
+    return max_index + start_index, int(max_battery)
 
 def get_joltage_from_bank(bank: str, number_of_batteries: int) -> int:
     joltage_for_bank = 0
