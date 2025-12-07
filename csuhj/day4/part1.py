@@ -36,7 +36,6 @@ def main():
 
             number_of_clear_rolls += 1 if count_surrounding_rolls(array, x, y) < 4 else 0
     
-    #2243 too high
     print(f"The sum of clear rolls is: {number_of_clear_rolls}")
 
 if __name__ == "__main__":
