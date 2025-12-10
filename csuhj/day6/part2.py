@@ -1,3 +1,4 @@
+from functools import reduce
 from typing import Callable
 
 
@@ -33,11 +34,7 @@ def pivot_numbers(number_strings: list[str]) -> list[int]:
 
 def calculate_problem(func: Callable[[int, int], int], number_strings: list[str]) -> int:
     numbers = pivot_numbers(number_strings)
-    running_total = numbers[0]
-    for n in numbers[1:]:
-        running_total = func(n, running_total)
-
-    return running_total
+    return reduce(func, numbers[1:], numbers[0])
 
 def main():
     grand_total = 0
@@ -46,11 +43,7 @@ def main():
     number_of_rows = len(array)
     for column_index in range(len(array[0])):
         operation = array[number_of_rows - 1][column_index].strip()
-
-        number_strings = []
-        for row_index in range(number_of_rows - 1):
-            num = array[row_index][column_index]
-            number_strings.append(num)
+        number_strings = [array[row_index][column_index] for row_index in range(number_of_rows - 1)]
 
         if operation == "*":
             func = lambda x, y: x * y
