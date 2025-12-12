@@ -54,6 +54,7 @@ class Grid:
         new_row = current_row[:x] + value + current_row[x + 1:]
         self.contents[y] = new_row
 
+
 def day04_part1() -> int:
     contents = get_day04_input()
     grid = Grid(contents)
